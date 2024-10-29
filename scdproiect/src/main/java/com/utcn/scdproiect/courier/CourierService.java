@@ -1,4 +1,4 @@
-package com.utcn.scdproiect.pkg;
+package com.utcn.scdproiect.courier;
 
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -7,41 +7,41 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class PackageService {
+public class CourierService {
     @Autowired
-    private PackageRepository packageRepository;
+    private CourierRepository courierRepository;
 
     //CRUD: Read
-    public List<Package> getAllPackages() {
-        return packageRepository.findAll();
+    public List<Courier> getAllCouriers() {
+        return courierRepository.findAll();
     }
 
     //Create
     @Transactional
-    public Package createPackage(Package pkg) {
-        return packageRepository.save(pkg);
+    public Courier createCourier(Courier courier) {
+        return courierRepository.save(courier);
     }
 
     //TODO: UPDATE
-    public Package updatePackageStatus(UpdatePackageRequest updatePackageRequest) {
+   /* public Package updatePackageStatus(UpdatePackageRequest updatePackageRequest) {
 
-        Package pack = packageRepository.findById(updatePackageRequest.getId())
+        Package pack = CourierRepository.findById(updatePackageRequest.getId())
                 .orElseThrow(() -> new RuntimeException("Pachetul nu a fost găsit!"));
 
         pack.setStatus(updatePackageRequest.getStatus());
 
-        return packageRepository.save(pack);
-    }
+        return CourierRepository.save(pack);
+    }*/
 
     //TODO: DELETE
-    public String deletePackage(Integer id) { //packageRepository.delete(pkg);
+    public String deleteCourier(Integer id) { //packageRepository.delete(pkg);
 
         try {
-            packageRepository.deleteById(id);
+            courierRepository.deleteById(id);
         } catch (Exception e) {
             return e.toString();
         }
-        return "pachetul a fost sters";
+        return "Curierul a fost sters";
 
     }
     //TODO: chestiile din readme

@@ -27,4 +27,5 @@ public class Package {
     private String deliveryAddress;
     boolean payOnDelivery;
     private PackageStatus status;
+    // public String email
 }

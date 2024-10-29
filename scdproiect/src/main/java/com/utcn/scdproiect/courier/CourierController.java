@@ -1,4 +1,4 @@
-package com.utcn.scdproiect.pkg;
+package com.utcn.scdproiect.courier;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -6,23 +6,22 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/package")
+@RequestMapping("/courier")
 @CrossOrigin
-public class PackageController {
+public class CourierController {
     @Autowired
-    private PackageService packageService;
+    private CourierService courierService;
 
     @PostMapping
-    public Package createPackage(@RequestBody Package pkg) {
-        return packageService.createPackage(pkg);
+    public Courier createCourier(@RequestBody Courier courier) {
+        return courierService.createCourier(courier);
     }
-
     @GetMapping
-    public List<Package> getAllPackages() {
-        return packageService.getAllPackages();
+    public List<Courier> getAllCouriers() {
+        return courierService.getAllCouriers();
     }
 
-    @PutMapping
+    /*@PutMapping
     public Package updatePackageStatus(@RequestBody UpdatePackageRequest upr) {
         try {
             return packageService.updatePackageStatus(upr);
@@ -30,11 +29,11 @@ public class PackageController {
             System.out.println(e.toString());
         }
         return null;
-    }
+    }*/
 
     @DeleteMapping
     public String deletePackage(Integer id) {
-        return packageService.deletePackage(id);
+        return courierService.deleteCourier(id);
 
     }
 

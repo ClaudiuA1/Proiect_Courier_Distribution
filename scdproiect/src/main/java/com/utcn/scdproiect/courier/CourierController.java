@@ -22,7 +22,7 @@ public class CourierController {
     }
 
     /*@PutMapping
-    public Package updatePackageStatus(@RequestBody UpdatePackageRequest upr) {
+    public Package updateCourierManager(@RequestBody Integer upr) {
         try {
             return packageService.updatePackageStatus(upr);
         } catch (Exception e) {

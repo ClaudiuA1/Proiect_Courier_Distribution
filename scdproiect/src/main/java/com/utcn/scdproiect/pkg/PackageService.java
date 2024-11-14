@@ -1,9 +1,11 @@
 package com.utcn.scdproiect.pkg;
 
+import com.utcn.scdproiect.courier.Courier;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -48,8 +50,14 @@ public class PackageService {
     //TODO: getPackagesForCourier
 
 
-//    public List<Package> getPackagesForCourier(Courier courier){
-//        //return packageRepository
-//    }
+    public List<Package> getPackagesForCourier(Courier courier) {
+        List<Package> packages = packageRepository.findByCourierId(courier.getId());
+        if (packages.isEmpty()) {
+            System.out.println("Curierul nu a livrat pachete");
+        }
+        return packages;
+    }
+
+
 
 }

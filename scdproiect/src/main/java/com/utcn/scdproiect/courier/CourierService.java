@@ -3,6 +3,8 @@ package com.utcn.scdproiect.courier;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 
 import java.util.List;
 
@@ -48,8 +50,5 @@ public class CourierService {
     //TODO: getPackagesForCourier
 
 
-//    public List<Package> getPackagesForCourier(Courier courier){
-//        //return packageRepository
-//    }
 
 }

@@ -36,5 +36,9 @@ public class CourierController {
         return courierService.deleteCourier(id);
 
     }
+    @GetMapping("/without-pending-packages")
+    public List<Courier> getCouriersWithoutPendingPackages() {
+        return courierService.getAllCouriersWithoutPendingPackages();
+    }
 
 }

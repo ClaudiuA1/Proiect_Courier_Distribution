@@ -47,7 +47,9 @@ public class CourierService {
 
     }
     //TODO: chestiile din readme
-    //TODO: getPackagesForCourier
+    public List<Courier> getAllCouriersWithoutPendingPackages() {
+        return courierRepository.getAllCouriersWithoutPendingPackages();
+    }
 
 
 

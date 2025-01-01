@@ -47,7 +47,7 @@ public class PackageService {
 
     }
     //TODO: chestiile din readme
-    //TODO: getPackagesForCourier
+
 
 
     public List<Package> getPackagesForCourier(Courier courier) {

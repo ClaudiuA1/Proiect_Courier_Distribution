@@ -4,7 +4,7 @@ import lombok.Data;
 
 @Data
 public class UpdatePackageRequest {
-    private Integer id;
+    private Integer id; //id pachet
     private PackageStatus status;
 
 }

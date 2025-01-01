@@ -1,0 +1,10 @@
+C:\Users\claudiu\Desktop\Facultate\An4\SCD\SCD_Proiect\SCD_Proiect_Courier_Distribution\Courier_Application\Courier_Application\bin\Debug\Courier_Application.exe.config
+C:\Users\claudiu\Desktop\Facultate\An4\SCD\SCD_Proiect\SCD_Proiect_Courier_Distribution\Courier_Application\Courier_Application\bin\Debug\Courier_Application.exe
+C:\Users\claudiu\Desktop\Facultate\An4\SCD\SCD_Proiect\SCD_Proiect_Courier_Distribution\Courier_Application\Courier_Application\bin\Debug\Courier_Application.pdb
+C:\Users\claudiu\Desktop\Facultate\An4\SCD\SCD_Proiect\SCD_Proiect_Courier_Distribution\Courier_Application\Courier_Application\obj\Debug\Courier_Application.csproj.AssemblyReference.cache
+C:\Users\claudiu\Desktop\Facultate\An4\SCD\SCD_Proiect\SCD_Proiect_Courier_Distribution\Courier_Application\Courier_Application\obj\Debug\Courier_Application.csproj.SuggestedBindingRedirects.cache
+C:\Users\claudiu\Desktop\Facultate\An4\SCD\SCD_Proiect\SCD_Proiect_Courier_Distribution\Courier_Application\Courier_Application\obj\Debug\Courier_Application.Properties.Resources.resources
+C:\Users\claudiu\Desktop\Facultate\An4\SCD\SCD_Proiect\SCD_Proiect_Courier_Distribution\Courier_Application\Courier_Application\obj\Debug\Courier_Application.csproj.GenerateResource.cache
+C:\Users\claudiu\Desktop\Facultate\An4\SCD\SCD_Proiect\SCD_Proiect_Courier_Distribution\Courier_Application\Courier_Application\obj\Debug\Courier_Application.csproj.CoreCompileInputs.cache
+C:\Users\claudiu\Desktop\Facultate\An4\SCD\SCD_Proiect\SCD_Proiect_Courier_Distribution\Courier_Application\Courier_Application\obj\Debug\Courier_Application.exe
+C:\Users\claudiu\Desktop\Facultate\An4\SCD\SCD_Proiect\SCD_Proiect_Courier_Distribution\Courier_Application\Courier_Application\obj\Debug\Courier_Application.pdb

@@ -51,6 +51,9 @@ public class CourierService {
         return courierRepository.getAllCouriersWithoutPendingPackages();
     }
 
+    public List<Object[]> getManagersAndDeliveredCount(){
+        return courierRepository.getManagersAndDeliveredCount();
+    }
 
 
 }

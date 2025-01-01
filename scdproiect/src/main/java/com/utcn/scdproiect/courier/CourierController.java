@@ -41,4 +41,10 @@ public class CourierController {
         return courierService.getAllCouriersWithoutPendingPackages();
     }
 
+    @GetMapping("/all-managers-delivered")
+    public List<Object[]> getManagersAndDeliveredCount(){
+        return  courierService.getManagersAndDeliveredCount();
+
+    }
+
 }

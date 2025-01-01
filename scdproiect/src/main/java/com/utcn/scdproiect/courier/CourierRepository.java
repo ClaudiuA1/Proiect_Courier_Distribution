@@ -12,9 +12,19 @@ public interface CourierRepository extends JpaRepository<Courier, Integer> {
                 WHERE c.id NOT IN (
                     SELECT p.courier.id
                     FROM Package p
-                    WHERE p.status = com.utcn.scdproiect.pkg.PackageStatus.PENDING
+                    WHERE p.status = 1
                                                          )
             """)
     List<Courier> getAllCouriersWithoutPendingPackages();
+
+    @Query("""
+        SELECT c, COUNT(p.id)
+        FROM Courier c
+        LEFT JOIN Package p ON p.courier.id = c.id AND p.status = 2
+        WHERE c.manager_id IS NULL
+        GROUP BY c.id
+       """)
+    List<Object[]> getManagersAndDeliveredCount();
+
 
 }

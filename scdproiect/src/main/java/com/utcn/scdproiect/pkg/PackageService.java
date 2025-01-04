@@ -50,8 +50,8 @@ public class PackageService {
 
 
 
-    public List<Package> getPackagesForCourier(Courier courier) {
-        List<Package> packages = packageRepository.findByCourierId(courier.getId());
+    public List<Package> getPackagesForCourier(Integer id) {
+        List<Package> packages = packageRepository.findByCourierId(id);
         if (packages.isEmpty()) {
             System.out.println("Curierul nu a livrat pachete");
         }

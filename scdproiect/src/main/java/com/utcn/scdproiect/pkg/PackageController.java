@@ -39,8 +39,8 @@ public class PackageController {
 
     }
     @GetMapping("/CourierPackage")
-    public List<Package> getPackagesForCourier(@RequestBody Courier courier) {
-        return packageService.getPackagesForCourier(courier);
+    public List<Package> getPackagesForCourier(Integer id) {
+        return packageService.getPackagesForCourier(id);
 
     }
 

@@ -25,14 +25,9 @@ public class CourierService {
     }
 
     //TODO: UPDATE
-   /* public Package updatePackageStatus(UpdatePackageRequest updatePackageRequest) {
+   /* public Courier updateCourierManager(Integer id) {
 
-        Package pack = CourierRepository.findById(updatePackageRequest.getId())
-                .orElseThrow(() -> new RuntimeException("Pachetul nu a fost găsit!"));
 
-        pack.setStatus(updatePackageRequest.getStatus());
-
-        return CourierRepository.save(pack);
     }*/
 
     //TODO: DELETE

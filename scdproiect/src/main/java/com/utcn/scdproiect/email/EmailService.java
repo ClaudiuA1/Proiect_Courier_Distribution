@@ -18,17 +18,17 @@ public class EmailService {
         this.mailSender = mailSender;
     }
 
-    public void sendEmails(List<String> emails, String message) {
+    public void sendEmails(List<String> emails, String message,String subject) {
         for (String email : emails) {
-            sendEmail(email, message);
+            sendEmail(email, message,subject);
         }
     }
 
-    private void sendEmail(String email, String message) {
+    private void sendEmail(String email, String message,String subject) {
         try {
             SimpleMailMessage mailMessage = new SimpleMailMessage();
             mailMessage.setTo(email);
-            mailMessage.setSubject("Important Notification");
+            mailMessage.setSubject(subject);
             mailMessage.setText(message);
 
             mailSender.send(mailMessage);

@@ -14,7 +14,7 @@ namespace WinFormsApp1
         public void createConnection()
         {
             // Update port # in the following line.
-            client.BaseAddress = new Uri("http://localhost:8083/");
+            client.BaseAddress = new Uri("http://localhost:8080/");
             client.DefaultRequestHeaders.Accept.Clear();
             client.DefaultRequestHeaders.Accept.Add(
                 new MediaTypeWithQualityHeaderValue("application/json"));
@@ -40,7 +40,7 @@ namespace WinFormsApp1
             List<Package> packages = this.GetPackages();
             return packages
                 .Select(p => p.courier)
-                .GroupBy(c => c.name) // Grupăm după nume
+                .GroupBy(c => c.name)  // Grupăm după nume
                 .Select(g => g.First()) // Alegem primul curier din fiecare grup
                 .ToList(); // Transformăm rezultatul în List<Courier>
         }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using WinFormsApp1;
 
 namespace Courier_Application
 {
@@ -16,6 +17,10 @@ namespace Courier_Application
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+            PackageService packageService = new PackageService();
+            packageService.createConnection();
+            CourierService courierService = new CourierService();
+            courierService.createConnection();
             Application.Run(new Form1());
         }
     }

@@ -25,6 +25,55 @@ public class Package {
     @CreationTimestamp
     private Date createdOn;
     private String deliveryAddress;
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public Courier getCourier() {
+        return courier;
+    }
+
+    public void setCourier(Courier courier) {
+        this.courier = courier;
+    }
+
+    public Date getCreatedOn() {
+        return createdOn;
+    }
+
+    public void setCreatedOn(Date createdOn) {
+        this.createdOn = createdOn;
+    }
+
+    public String getDeliveryAddress() {
+        return deliveryAddress;
+    }
+
+    public void setDeliveryAddress(String deliveryAddress) {
+        this.deliveryAddress = deliveryAddress;
+    }
+
+    public boolean isPayOnDelivery() {
+        return payOnDelivery;
+    }
+
+    public void setPayOnDelivery(boolean payOnDelivery) {
+        this.payOnDelivery = payOnDelivery;
+    }
+
+    public PackageStatus getStatus() {
+        return status;
+    }
+
+    public void setStatus(PackageStatus status) {
+        this.status = status;
+    }
+
     boolean payOnDelivery;
     private PackageStatus status;
     // public String email

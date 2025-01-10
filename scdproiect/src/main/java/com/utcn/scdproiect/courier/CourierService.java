@@ -24,7 +24,7 @@ public class CourierService {
         return courierRepository.save(courier);
     }
 
-    //TODO: UPDATE
+
    /* public Courier updateCourierManager(Integer id) {
 
 

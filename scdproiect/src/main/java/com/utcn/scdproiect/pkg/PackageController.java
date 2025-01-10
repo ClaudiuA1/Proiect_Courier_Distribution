@@ -43,5 +43,20 @@ public class PackageController {
         return packageService.getPackagesForCourier(id);
 
     }
+    @GetMapping("/NoCourier")
+    public List<Package> getPackagesNoCourier(){
+        return packageService.getPackagesNoCourier();
+    }
+    @PutMapping("/AssignCourier/{idPkg}/{idCor}")
+    public Package assignPackageCourier(@PathVariable Integer idPkg, @PathVariable Integer idCor) {
+        System.out.println("Id pachet: " + idPkg);
+        System.out.println("Courier: " + idCor);
+
+        return packageService.assignPackageCourier(idPkg, idCor);
+    }
+
+
+
+
 
 }

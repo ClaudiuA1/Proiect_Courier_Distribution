@@ -15,9 +15,8 @@
         <!-- Conținutul bazat pe tab-ul selectat -->
         <v-card-text>
           <!-- Home Tab -->
-          <div v-if="tab === 'one'">
-            <h1>Welcome to Home</h1>
-            <img src="@/assets/Imagine_Home.jpg" alt="Welcome Image" class="home-image" />
+          <div v-if="tab === 'one'" class="home-tab" :style="{ backgroundImage: `url(${imagineHome})` }">
+            <h1 class="home-title">Welcome to Package delivery App</h1>
           </div>
 
 
@@ -63,6 +62,7 @@ import AddPackage from "./components/AddPackage.vue";
 import AssignCourier from "./components/AssignCourier.vue";
 import AddCourier from "./components/AddCourier.vue";
 import CouriersView from "./components/CouriersView.vue";
+import imagineHome from '@/assets/Imagine_Home.jpg'
 
 export default {
   name: "App",
@@ -71,11 +71,13 @@ export default {
     AddPackage,
     AssignCourier,
     AddCourier,
-    CouriersView
+    CouriersView,
+
   },
   data: () => ({
     tab: "one", // Valoarea implicită a tab-ului activ
     username: "Nume utilizator",
+    imagineHome
   }),
   mounted() {
     this.$refs.addPostDialog && (this.$refs.addPostDialog.showDialog = false);
@@ -85,15 +87,34 @@ export default {
       this.$refs.addPostDialog.showDialog = true;
     },
   },
+
+
 };
 </script>
 
+
 <style scoped>
-.home-image {
-  display: block;
-  margin: 20px auto; /* Adaugă spațiu în jurul imaginii, o centrează */
-  max-width: 100%; /* Ajustează imaginea să se încadreze în container */
-  height: auto; /* Păstrează proporțiile imaginii */
+.home-tab {
+  width: 100%; /* Ocupă lățimea completă */
+  height: calc(100vh); /* Înălțime completă, minus bara de navigare (ajustează în funcție de dimensiunea acesteia) */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.home-title {
+  color: white;
+  /* Text alb pentru contrast */
+  font-size: 3rem;
+  /* Dimensiune mare pentru text */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+  /* Adaugă un efect de umbră textului */
+  position: top;
+  
 }
 </style>
-

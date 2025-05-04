@@ -25,10 +25,7 @@ public class CourierService {
     }
 
 
-   /* public Courier updateCourierManager(Integer id) {
 
-
-    }*/
 
     //TODO: DELETE
     public String deleteCourier(Integer id) { //packageRepository.delete(pkg);

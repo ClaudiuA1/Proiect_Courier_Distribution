@@ -1,4 +1,6 @@
 package com.utcn.scdproiect.pkg;
+
+import com.utcn.scdproiect.user.User;
 import com.utcn.scdproiect.courier.Courier;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -20,6 +22,10 @@ public class Package {
     @ManyToOne
     @JoinColumn(name = "courier_id", nullable = true)
     private Courier courier;
+
+    @ManyToOne
+    @JoinColumn(name = "user_id", nullable = false)
+    private User user;
 
     @Column(nullable = false, updatable = false)
     @CreationTimestamp

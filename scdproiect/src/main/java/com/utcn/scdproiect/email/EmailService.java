@@ -22,7 +22,7 @@ public class EmailService {
         }
     }
 
-    private void sendEmail(String email, String message,String subject) {
+    public void sendEmail(String email, String message,String subject) {
         try {
             SimpleMailMessage mailMessage = new SimpleMailMessage();
             mailMessage.setTo(email);

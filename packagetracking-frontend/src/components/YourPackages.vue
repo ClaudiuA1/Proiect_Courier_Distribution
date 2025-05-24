@@ -5,14 +5,24 @@
       <header class="gradient-bg rounded-xl shadow-lg mb-8 p-6 text-white">
         <div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
           <h2 class="text-2xl md:text-3xl font-bold">My Assigned Packages</h2>
-          <button
-            @click="refreshData"
-            :disabled="loading"
-            class="bg-white text-purple-700 hover:bg-purple-50 px-6 py-2 rounded-lg font-medium flex items-center space-x-2 transition-colors duration-200"
-          >
-            <i :class="loading ? 'fas fa-spinner animate-spin' : 'fas fa-sync-alt'"></i>
-            <span>{{ loading ? 'Refreshing...' : 'Refresh' }}</span>
-          </button>
+          <div class="flex items-center space-x-2">
+            <button
+              @click="refreshData"
+              :disabled="loading"
+              class="bg-white text-purple-700 hover:bg-purple-50 px-6 py-2 rounded-lg font-medium flex items-center space-x-2 transition-colors duration-200"
+            >
+              <i :class="loading ? 'fas fa-spinner animate-spin' : 'fas fa-sync-alt'"></i>
+              <span>{{ loading ? 'Refreshing...' : 'Refresh' }}</span>
+            </button>
+            <button
+              @click="downloadPdf"
+              :disabled="loading"
+              class="bg-green-600 hover:bg-green-700 text-white px-6 py-2 rounded-lg font-medium flex items-center space-x-2 transition-colors duration-200"
+            >
+              <i class="fas fa-file-download"></i>
+              <span>Download PDF</span>
+            </button>
+          </div>
         </div>
       </header>
 
@@ -90,7 +100,6 @@ export default {
     },
     async fetchAssignedPackages() {
       try {
-        // presupuřem că id-ul curierului e salvat în localStorage sub 'courierId'
         const courierId = localStorage.getItem('courierId')
         const { data } = await axios.get('/package/CourierPackage', { params: { id: courierId } })
         this.packages = data
@@ -99,8 +108,32 @@ export default {
       }
     },
     openDetails(pkg) {
-      // Emite un eveniment sau setează un modal global
       this.$emit('show-package-details', pkg)
+    },
+    async downloadPdf() {
+      try {
+        this.loading = true
+        const courierId = localStorage.getItem('courierId')
+        const res = await axios.get(
+          `/courier/${courierId}/packages/pdf`,
+          { responseType: 'blob', withCredentials: true }
+        )
+        const blob = new Blob([res.data], { type: 'application/pdf' })
+        const url = window.URL.createObjectURL(blob)
+        const a = document.createElement('a')
+        a.href = url
+        a.download = 'my-packages.pdf'
+        document.body.appendChild(a)
+        a.click()
+        document.body.removeChild(a)
+        window.URL.revokeObjectURL(url)
+        alert('The PDF password was sent to your email.')
+      } catch (err) {
+        console.error('PDF download error', err)
+        alert('Could not generate PDF.')
+      } finally {
+        this.loading = false
+      }
     },
     statusClass(status) {
       switch (status.toLowerCase()) {

@@ -6,6 +6,8 @@ import org.springframework.data.jpa.repository.Query;
 import java.util.List;
 
 public interface CourierRepository extends JpaRepository<Courier, Integer> {
+    Courier findByemail(String email);
+    Courier findByname(String username);
     @Query("""
                 SELECT c
                 FROM Courier c

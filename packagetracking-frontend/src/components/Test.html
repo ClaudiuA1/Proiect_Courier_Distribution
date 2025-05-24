@@ -1,0 +1,110 @@
+<template>
+  <v-container fluid class="packages-container pa-0">
+    <v-sheet class="gradient-bg packages-header" elevation="2">
+      <v-row align="center" no-gutters>
+        <v-col cols="auto">
+          <v-img src="@/assets/OnlyCouriers.png" contain class="packages-logo"/>
+        </v-col>
+        <v-col>
+          <h2 class="packages-title">Available Packages</h2>
+        </v-col>
+        <v-col cols="auto">
+          <v-btn color="deep-purple accent-4" dark large @click="fetchPackages">
+            <v-icon left>mdi-refresh</v-icon> Refresh
+          </v-btn>
+        </v-col>
+      </v-row>
+    </v-sheet>
+
+    <v-card flat class="packages-card">
+      <v-data-table
+        :headers="headers"
+        :items="packages"
+        class="elevation-1"
+        :items-per-page="5"
+      >
+        <!-- corecția: bracket-notation pentru slot-ul item.status -->
+         <!-- dezactivează linia asta pentru ESLint -->
+  
+  <template v-slot:item.status="{ item }"> <!-- eslint-disable-line vue/valid-v-slot -->
+    <v-chip :color="item.status === 'Delivered' ? 'green' : 'orange'" dark small>
+      {{ item.status }}
+    </v-chip>
+  </template>
+
+        <template #no-data>
+          <v-alert type="info" border="left" color="deep-purple accent-1">
+            No packages found.
+          </v-alert>
+        </template>
+      </v-data-table>
+    </v-card>
+  </v-container>
+</template>
+
+<script>
+import axios from 'axios';
+
+export default {
+  name: 'PackagesView',
+  data() {
+    return {
+      packages: [],
+      headers: [
+        { text: 'ID', value: 'id' },
+        { text: 'Name', value: 'name' },
+        { text: 'Destination', value: 'destination' },
+        { text: 'Status', value: 'status' },
+      ],
+    };
+  },
+  methods: {
+    async fetchPackages() {
+      try {
+        const { data } = await axios.get('http://localhost:8080/package');
+        this.packages = data;
+      } catch (error) {
+        console.error('Error fetching packages:', error);
+      }
+    },
+  },
+  mounted() {
+    this.fetchPackages();
+  },
+};
+</script>
+
+<style scoped>
+.gradient-bg {
+  background: linear-gradient(135deg, #7e22ce 0%, #9333ea 50%, #a855f7 100%);
+}
+.packages-container {
+  min-height: 100vh;
+  background-color: #faf5ff;
+  padding-top: 16px;
+}
+.packages-header {
+  padding: 16px;
+  color: white;
+}
+.packages-logo {
+  width: 60px;
+  height: 60px;
+  margin-right: 16px;
+}
+.packages-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin: 0;
+}
+.packages-card {
+  background: rgba(255, 255, 255, 0.8);
+  margin: 24px 16px;
+  padding: 16px;
+  border-radius: 8px;
+}
+/* stil pentru header-ul tabelului */
+.theme--light.v-data-table-header {
+  background-color: #e9d5ff !important;
+}
+</style>

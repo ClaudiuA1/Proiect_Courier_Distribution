@@ -54,7 +54,7 @@ export default {
         return;
       }
         // Trimite datele la server
-        const response = await axios.post('http://localhost:8080/package', this.currentPackage);
+        const response = await axios.post('/package', this.currentPackage);
         console.log("Package created successfully:", response.data);
         
         // Afișează mesajul de succes

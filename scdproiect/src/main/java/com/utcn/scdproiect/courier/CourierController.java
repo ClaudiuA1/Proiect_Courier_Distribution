@@ -12,13 +12,18 @@ public class CourierController {
     @Autowired
     private CourierService courierService;
 
-    @PostMapping
+    @PostMapping("/create")
     public Courier createCourier(@RequestBody Courier courier) {
         return courierService.createCourier(courier);
     }
     @GetMapping
     public List<Courier> getAllCouriers() {
         return courierService.getAllCouriers();
+    }
+
+    @GetMapping("/login")
+    public String loginCourier(@RequestParam String email, @RequestParam String password) {
+        return courierService.loginCourier(email, password);
     }
 
     /*@PutMapping

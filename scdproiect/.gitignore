@@ -31,3 +31,9 @@ build/
 
 ### VS Code ###
 .vscode/
+
+##Password
+/src/main/resources/application.properties
+*.p12
+*.pfx
+*.jks

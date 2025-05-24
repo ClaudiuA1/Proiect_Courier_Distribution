@@ -18,6 +18,8 @@ public class Courier {
     private Integer id;
     private String name;
     private String email;
+    private String password;
     private Integer manager_id;
+   
 
 }

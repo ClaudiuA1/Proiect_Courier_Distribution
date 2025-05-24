@@ -1,6 +1,5 @@
 package com.utcn.scdproiect.pkg;
 
-import com.utcn.scdproiect.courier.Courier;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
